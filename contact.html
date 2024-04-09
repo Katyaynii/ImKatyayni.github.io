@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="navigation.css">
+  <style>
+    /* Additional styling for the contact form */
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 5px;
+    }
+    input[type="text"],
+    input[type="email"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    select {
+      appearance: none;
+      background-color: #f9f9f9;
+    }
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      height: 120px; /* Adjusted height */
+    }
+    .light-grey-textbox {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f2f2f2;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Styling for the keyboard */
+    .keyboard {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-gap: 5px;
+    }
+    .keyboard button {
+      padding: 10px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      color: #333; /* Set text color */
+    }
+    .keyboard button:hover {
+      background-color: #e0e0e0;
+    }
+    .keyboard textarea {
+      grid-column: span 10;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-content">
+    <h1 style="text-align: center; color: #007bff;">Contact Me</h1>
+    <div style="display: flex;">
+      <div style="flex: 1;">
+        <form action="#" method="post">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="reason">Reason for Contact:</label>
+            <select id="reason" name="reason" required>
+              <option value="connect">To Connect</option>
+              <option value="work">For Work</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <div style="flex: 1;">
+        <form action="#" method="post">
+          <div class="form-group">
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="4" required></textarea> <!-- Adjusted rows -->
+          </div>
+          <button type="submit">Submit Feedback</button>
+        </form>
+      </div>
+    </div>
+    <div class="form-group" style="margin-top: 20px;">
+      <label for="message">Message:</label>
+      <input type="text" id="message" name="message" class="light-grey-textbox" required>
+    </div>
+    <!-- Button to open the keyboard -->
+    <button id="showKeyboard">Open Keyboard</button>
+  </div>
+
+  <!-- On-Screen Keyboard Modal -->
+  <div id="keyboardModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close" onclick="closeKeyboardModal()">&times;</span>
+      <!-- On-Screen Keyboard Layout -->
+      <div class="keyboard" role="application" aria-label="On-Screen Keyboard">
+        <!-- First Row -->
+        <div class="row">
+          <button onclick="typeCharacter('Q')" aria-label="Q">Q</button>
+          <button onclick="typeCharacter('W')" aria-label="W">W</button>
+          <button onclick="typeCharacter('E')" aria-label="E">E</button>
+          <button onclick="typeCharacter('R')" aria-label="R">R</button>
+          <button onclick="typeCharacter('T')" aria-label="T">T</button>
+          <button onclick="typeCharacter('Y')" aria-label="Y">Y</button>
+          <button onclick="typeCharacter('U')" aria-label="U">U</button>
+          <button onclick="typeCharacter('I')" aria-label="I">I</button>
+          <button onclick="typeCharacter('O')" aria-label="O">O</button>
+          <button onclick="typeCharacter('P')" aria-label="P">P</button>
+        </div>
+        <!-- Second Row -->
+        <div class="row">
+          <button onclick="typeCharacter('A')" aria-label="A">A</button>
+          <button onclick="typeCharacter('S')" aria-label="S">S</button>
+          <button onclick="typeCharacter('D')" aria-label="D">D</button>
+          <button onclick="typeCharacter('F')" aria-label="F">F</button>
+          <button onclick="typeCharacter('G')" aria-label="G">G</button>
+          <button onclick="typeCharacter('H')" aria-label="H">H</button>
+          <button onclick="typeCharacter('J')" aria-label="J">J</button>
+          <button onclick="typeCharacter('K')" aria-label="K">K</button>
+          <button onclick="typeCharacter('L')" aria-label="L">L</button>
+        </div>
+        <!-- Third Row -->
+        <div class="row">
+          <button onclick="typeCharacter('Z')" aria-label="Z">Z</button>
+          <button onclick="typeCharacter('X')" aria-label="X">X</button>
+          <button onclick="typeCharacter('C')" aria-label="C">C</button>
+          <button onclick="typeCharacter('V')" aria-label="V">V</button>
+          <button onclick="typeCharacter('B')" aria-label="B">B</button>
+          <button onclick="typeCharacter('N')" aria-label="N">N</button>
+          <button onclick="typeCharacter('M')" aria-label="M">M</button>
+        </div>
+        <!-- Fourth Row (Numbers and Special Characters) -->
+        <div class="row">
+          <button onclick="typeCharacter('1')" aria-label="1">1</button>
+          <button onclick="typeCharacter('2')" aria-label="2">2</button>
+          <button onclick="typeCharacter('3')" aria-label="3">3</button>
+          <button onclick="typeCharacter('4')" aria-label="4">4</button>
+          <button onclick="typeCharacter('5')" aria-label="5">5</button>
+          <button onclick="typeCharacter('6')" aria-label="6">6</button>
+          <button onclick="typeCharacter('7')" aria-label="7">7</button>
+          <button onclick="typeCharacter('8')" aria-label="8">8</button>
+          <button onclick="typeCharacter('9')" aria-label="9">9</button>
+          <button onclick="typeCharacter('0')" aria-label="0">0</button>
+          <button onclick="typeCharacter('@')" aria-label="At">@</button>
+          <button onclick="typeCharacter('.')" aria-label="Dot">.</button>
+          <button onclick="typeCharacter('_')" aria-label="Underscore">_</button>
+        </div>
+        <!-- Additional rows and buttons can be added as needed -->
+        <textarea id="keyboardInput" rows="4" aria-label="Type here"></textarea>
+        <button onclick="closeKeyboardModal()" aria-label="Close Keyboard">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    document.getElementById('showKeyboard').addEventListener('click', function() {
+      document.getElementById('keyboardModal').style.display = 'block';
+    });
+
+    // Function to insert characters into the keyboard input textarea
+    function typeCharacter(char) {
+      var textarea = document.getElementById('keyboardInput');
+      var start = textarea.selectionStart;
+      var end = textarea.selectionEnd;
+      var text = textarea.value;
+      textarea.value = text.substring(0, start) + char + text.substring(end);
+      textarea.setSelectionRange(start + 1, start + 1);
+    }
+
+    // Function to close the keyboard modal
+    function closeKeyboardModal() {
+      document.getElementById('keyboardModal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

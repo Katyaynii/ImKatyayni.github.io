@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Title Tag -->
+  <title>Katyayni Chaudhary - Personal Portfolio</title>
+
+  <!-- Meta Description -->
+  <meta name="description" content="Explore the personal portfolio of Katyayni Chaudhary, featuring a collection of thoughts, experiences, and endeavors. Delve into her world through curated content including about, education, hobbies, resume, testimonials, and contact information.">
+
+  <link rel="stylesheet" href="styles.css">
+  <!-- Additional meta tags, scripts, and links for technical optimization can be added here -->
+</head>
+<body>
+  <div class="container">
+    <header>
+      <!-- Navigation Menu -->
+      <div class="cloud-menu">
+        <ul>
+          <li><a href="aboutme.html">About Me</a></li>
+          <li><a href="education.html">Education</a></li>
+          <li><a href="hobbies.html">Hobbies</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="contact.html">Contact Me</a></li>
+        </ul>
+      </div>
+    
+      <!-- Profile Picture with Alt Text -->
+      <div class="cloud-profile">
+          <img src="profile_picture.jpg" alt="Profile Picture of Katyayni Chaudhary">
+      </div>
+      <!-- Contact Information -->
+      <div class="contact-info">
+        <div class="contact-box linkedin-box">
+          <a href="https://www.linkedin.com/in/katyayni-c-77b15a231/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
+            <img src="linkedin.icon.png" alt="LinkedIn Icon" class="icon">
+          </a>
+          <p class="linkedin-text">LinkedIn</p>
+        </div>
+        <div class="contact-box instagram-box">
+          <a href="https://www.instagram.com/katyaynii_/" target="_blank">
+            <img src="instagram.icon.jpg" alt="Instagram Icon" class="icon">
+          </a>
+          <p class="instagram-text">Instagram</p>
+        </div>
+        <div class="contact-box email-box">
+          <a href="mailto:katyayni.chaudhary@torontomu.ca">
+            <img src="email_icon.jpg" alt="Email Icon" class="icon">
+          </a>
+          <p class="email-text">Email</p>
+        </div>
+      </div>
+
+      <!-- Accessibility Features -->
+      <div class="accessibility">
+        <button id="colorBlindMode">Color Blind Mode</button>
+        <button id="zoomIn">Zoom In</button>
+        <button id="zoomOut">Zoom Out</button>
+        <button id="showKeyboard">On-Screen Keyboard</button>
+      </div>
+      <!-- End Accessibility Features -->
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="main-content">
+      <div class="welcome-text">
+        <h1>WELCOME!</h1>
+        <p>I am <span class="highlight">Katyayni Chaudhary</span>.</p>
+        <p>This is my treasure trove. Here, you'll find a collection of my thoughts, experiences, and endeavors, carefully curated and presented for your exploration. Delve into the depths of my world, where every page holds a new discovery, every word a hidden gem. Join me on this journey of self-expression, where each piece reflects a piece of my heart and soul.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Katyayni Chaudhary. All rights reserved.</p>
+  </footer>
+
+  <!-- On-Screen Keyboard Modal -->
+  <div id="keyboardModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeKeyboardModal()">&times;</span>
+      <!-- On-Screen Keyboard Layout -->
+      <div class="keyboard">
+        <!-- Keyboard layout and functionality should be implemented here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Get elements
+      const colorBlindButton = document.getElementById('colorBlindMode');
+      const zoomInButton = document.getElementById('zoomIn');
+      const zoomOutButton = document.getElementById('zoomOut');
+      const showKeyboardButton = document.getElementById('showKeyboard');
+      const keyboardModal = document.getElementById('keyboardModal');
+      const closeButton = document.querySelector('.close');
+      const mainContent = document.querySelector('.main-content');
+
+      // Color Blind Mode
+      colorBlindButton.addEventListener('click', function() {
+          // Toggle color blind mode
+          toggleColorBlindMode();
+      });
+
+      // Zoom In
+      zoomInButton.addEventListener('click', function() {
+          // Implement zoom in functionality
+          zoomIn();
+      });
+
+      // Zoom Out
+      zoomOutButton.addEventListener('click', function() {
+          // Implement zoom out functionality
+          zoomOut();
+      });
+
+      // Show On-Screen Keyboard Modal
+      showKeyboardButton.addEventListener('click', function() {
+          keyboardModal.style.display = 'block'; // Display the keyboard modal
+      });
+
+      // Close On-Screen Keyboard Modal
+      closeButton.addEventListener('click', function() {
+          keyboardModal.style.display = 'none'; // Hide the keyboard modal when the close button is clicked
+      });
+
+      // Close On-Screen Keyboard Modal when clicking outside of it
+      window.addEventListener('click', function(event) {
+          if (event.target === keyboardModal) {
+              keyboardModal.style.display = 'none';
+          }
+      });
+
+      // Add 'show' class to main content to trigger transition effect
+      mainContent.classList.add('show');
+    });
+
+    function closeKeyboardModal() {
+      var keyboardModal = document.getElementById('keyboardModal');
+      keyboardModal.style.display = 'none';
+    }
+
+    function typeCharacter(character) {
+      // Here you can implement the functionality to insert the typed character into your desired input or textarea element.
+      console.log('Typed character:', character);
+    }
+
+    function toggleColorBlindMode() {
+      // Toggle color blind mode by changing colors of elements
+      const body = document.body;
+      const mainContent = document.querySelector('.main-content');
+      const welcomeText = document.querySelector('.welcome-text');
+      const cloudMenu = document.querySelector('.cloud-menu');
+      const footer = document.querySelector('footer');
+
+      body.classList.toggle('color-blind-mode');
+      mainContent.classList.toggle('color-blind-mode');
+      welcomeText.classList.toggle('color-blind-mode');
+      cloudMenu.classList.toggle('color-blind-mode');
+      footer.classList.toggle('color-blind-mode');
+    }
+
+    function zoomIn() {
+      // Increase font sizes or scale elements up
+      document.body.style.fontSize = '120%';
+    }
+
+    function zoomOut() {
+      // Decrease font sizes or scale elements down
+      document.body.style.fontSize = '80%';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+/* styles.css */
+
+/* Set the background color to pastel blue */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #a6c8ff; /* Pastel blue background */
+}
+
+/* Title styles */
+h1 {
+    font-size: 36px; /* Big font size */
+    font-weight: bold; /* Bold font weight */
+    text-align: center; /* Center align */
+    cursor: pointer; /* Add pointer cursor */
+}
+
+/* Zoom out animation on title click */
+h1:hover {
+    transform: scale(0.9); /* Zoom out effect */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Main content styles */
+.main-content {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    font-size: 16px; /* Font size 16 */
+    color: black; /* Text color black */
+    font-weight: bold; /* Bold font weight */
+}
